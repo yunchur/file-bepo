@@ -71,9 +71,8 @@ class PensionData():
     def get_data(self):
         return self.df
 
-@st.cache_data
+@st.cache_resource
 def read_pensiondata():
-    # 👉 아래 링크는 너가 직접 드롭박스나 구글 드라이브에 올린 CSV 링크로 바꿔줘!
     url = 'https://www.dropbox.com/s/nxeo1tziv05ejz7/national-pension.csv?dl=1'
     data = PensionData(url)
     return data
