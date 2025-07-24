@@ -15,7 +15,7 @@ plt.rcParams['axes.unicode_minus'] = False
 
 class PensionData():
     def __init__(self, filepath):
-        self.df = pd.read_csv(os.path.join(filepath), encoding='cp949')
+        self.df = pd.read_csv(filepath, encoding='cp949')
         self.pattern1 = '(\([^)]+\))'
         self.pattern2 = '(\[[^)]+\])'
         self.pattern3 = '[^A-Za-z0-9가-힣]'
@@ -73,8 +73,9 @@ class PensionData():
 
 @st.cache_data
 def read_pensiondata():
-    #data = PensionData('https://www.dropbox.com/s/nxeo1tziv05ejz7/national-pension.csv?dl=1')
-    data = PensionData('national-pension.csv')
+    # 👉 아래 링크는 너가 직접 드롭박스나 구글 드라이브에 올린 CSV 링크로 바꿔줘!
+    url = 'https://www.dropbox.com/s/nxeo1tziv05ejz7/national-pension.csv?dl=1'
+    data = PensionData(url)
     return data
 
 data = read_pensiondata()
